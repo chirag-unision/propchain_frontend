@@ -2,17 +2,17 @@ import TopBar from "../components/common/topBar";
 
 
 
-const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
-    height: 1,
-    overflow: 'hidden',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    whiteSpace: 'nowrap',
-    width: 1,
-  });
+// const VisuallyHiddenInput = styled('input')({
+//     clip: 'rect(0 0 0 0)',
+//     clipPath: 'inset(50%)',
+//     height: 1,
+//     overflow: 'hidden',
+//     position: 'absolute',
+//     bottom: 0,
+//     left: 0,
+//     whiteSpace: 'nowrap',
+//     width: 1,
+//   });
 
 
 const PropertyPage = () => {
@@ -22,7 +22,7 @@ const PropertyPage = () => {
             <div className="p-5 w-full">
                 <div className="flex flex-row justify-evenly rounded-2xl bg-[#181A1B]">
                     <div className='w-1/5'>
-                        <Button
+                        {/* <Button
                             className="w-full h-"
                             component="label"
                             role={undefined}
@@ -32,7 +32,7 @@ const PropertyPage = () => {
                             >
                             Upload file
                             <VisuallyHiddenInput type="file" />
-                        </Button>
+                        </Button> */}
                     </div>
                     <div className='w-full'></div>
                 </div>

@@ -4,9 +4,9 @@ const PropertyCard = () => {
     return (
         <div className="h-screen bg-white ">
             <div className=" w-[80%] h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
-                <div className="flex flex-row w-[70%] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl justify-start">
-                    <div className="flex flex-col w-max">
-                        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="property" className="w-[40%] h-30 rounded-3xl ml-5 mt-5" />
+                <div className="flex flex-row w-[70%] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
+                    <div className="flex flex-col ">
+                        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="property" className="w-[10vw] h-30 rounded-3xl ml-5 mt-5" />
                         <div className="text-white w-max font-sans"> Rent Period</div>
                         <div className="text-white w-max font-sans text-3xl "> 5 Months</div>
                     </div>
