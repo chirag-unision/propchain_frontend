@@ -4,7 +4,7 @@ const ProfilePage = () => {
     return (
         <div>
             <TopBar />
-        <h1>Profile Page</h1>
+            <h1>Profile Page</h1>
         </div>
     );
     }

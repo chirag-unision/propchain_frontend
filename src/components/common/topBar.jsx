@@ -20,13 +20,17 @@ const TopBar = ({ iconUrl = "/User.png", user_name = "Nakshatra Chandna", showAd
             </div>
 
             <div className="flex flex-row gap-x-6">
+               { showAdd &&
                 <div className="text-white bg-[#1E2021] px-3 py-1 h-min rounded-lg ">
+                    <a href="/addProperty">
                     Add Another Property 
+                    </a>
                 </div>
-
+                }
                 <div className="">
                     <img src={"/Wallet.png"} className="h-[2rem] w-[2rem] rounded-md "></img>
                 </div>
+                
 
             </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const PropertyCard = () => {
+const PropertyCard = ({}) => {
     return (
         <div    >
             <div className="flex flex-row w-[80%] h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
