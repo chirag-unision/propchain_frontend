@@ -1,10 +1,26 @@
 import React from "react";
 import Button from '@mui/material/Button';
+import { Modal, Rating, Typography } from "@mui/material";
 
-const PropertyCard = ({ isOwner = false, owner = "Sourav Rao Apte" }) => {
+const PropertyCard = ({ isOwner = false , price="10k", handlePayment, owner = "Sourav Rao Apte" }) => {
+    const [modal, setModal] = React.useState(false);
+    const [ownerRating, setOwnerRating] = React.useState(1);
+    const [propertyRating, setPropertyRating] = React.useState(1);
+    
+
+    const handleModalSubmit = () => {
+        if(handlePayment){
+
+        const data = {};
+        handlePayment(price, data).then(()=>{
+            setModal(false);
+        });
+    }
+    }
+    
     return (
         <div    >
-            <div className="flex flex-row w-[80%] h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
+            <div className="flex flex-row w-full h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
                 <div className="flex flex-row w-[70%] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
                     <div className="flex flex-col ">
                         <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
@@ -22,7 +38,7 @@ const PropertyCard = ({ isOwner = false, owner = "Sourav Rao Apte" }) => {
                                     <div className="m-auto font-bold font-sans mr-5">Naksh</div>
                                 </div>
                             </div>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0Jjiu0LQj59Wm8RUTVgn52VdNzkE0oMUcc6-Q4fJ6vgcA6regpZEfuVn4wtCbqCzoYY&usqp=CAU" className="w-[4vw] mt-6" />
+                            <img src="/Docs.png" className="w-[4vw] mt-6" />
                         </div> : <div>
                             <div className="flex flex-row w-max mt-5">
                                 <div className="text-white  font-sans text-2xl font-bold ">Owner: {owner}</div>
@@ -34,14 +50,17 @@ const PropertyCard = ({ isOwner = false, owner = "Sourav Rao Apte" }) => {
                                 }}>View Profile</Button>
                                 </div>
                             </div>
-                            <div className="mt-10"><Button variant="contained"  style={{
+                            <div className="mt-10"><Button variant="contained" 
+                            onClick={()=>{setModal(true)}}
+                             style={{
                                 backgroundColor: "#1C450D",
                                 width: "12vw",
                                 borderRadius: "20px",
-                            }} >Pay latest rent</Button></div>
+
+                            }} >Pay latest Rent</Button></div>
                         </div>}
                     </div>
-
+                        
 
                 </div>
                 <div className="flex flex-col justify-center mx-auto ">
@@ -56,6 +75,51 @@ const PropertyCard = ({ isOwner = false, owner = "Sourav Rao Apte" }) => {
 
 
             </div>
+            <Modal
+                open={modal}
+                onClose={()=>{setModal(false)}}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                // style={{}}
+                className="flex justify-center items-center"
+            >
+                <div className="bg-nak-dark-gray w-1/3 p-5 border-[#2D2D2D] border-8  rounded-lg">
+                    <div className="text-white text-2xl mb-3"> Give Property Review and Pay Rent</div>
+                    <div className="rounded-xl bg-[#2D2D2D] p-4 text-[#ADADAD]">
+                        Help us give you a better user experience. 
+                        Fill the feedback form before paying your monthly rent
+                    </div>
+                    <div className="flex flex-row justify-evenly gap-x-5 mt-5 text-white">
+                        <div>
+                            <Typography component="legend">Owner Rating</Typography>
+                            <Rating
+                                name="simple-controlled"
+                                value={ownerRating}
+                                onChange={(event, newValue) => {
+                                setOwnerRating(newValue);
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <Typography component="legend">Property Rating</Typography>
+                            <Rating
+                                name="simple-controlled"
+                                value={propertyRating}
+                                onChange={(event, newValue) => {
+                                setPropertyRating(newValue);
+                                }}
+                            />
+                        </div>
+                    </div>
+                    <Button variant="contained" 
+                    onClick={handleModalSubmit}
+                        style={{margin:"0.5rem auto", display:"block"}} color="primary" >
+                    Pay {price} for this Month</Button>
+                        
+                        
+                    
+                </div>
+            </Modal>   
         </div>
 
     );

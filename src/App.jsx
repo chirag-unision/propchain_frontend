@@ -46,6 +46,11 @@ const router = createBrowserRouter([
   {
     path:"/requests",
     element: <RequestsPage/>
+  },
+  {
+    path:"dashboard",
+    element: <DashboardPage/>
+  
   }
   
 ]);
