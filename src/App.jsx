@@ -11,6 +11,7 @@ import TenentsPage from './pages/TenetsPage'
 import PropertyCard from './components/dashboard/propertyCard'
 import AddPropertyPage from './pages/ListProperty'
 import PropertyPage from './pages/PropertyPage'
+import RequestsPage from './pages/RequestsPage'
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,12 @@ const router = createBrowserRouter([
     element: <TenentsPage />,
   },
   {
-    path:"addProperty",
+    path:"/addProperty",
     element: <AddPropertyPage/>
+  },
+  {
+    path:"/requests",
+    element: <RequestsPage/>
   }
   
 ]);
