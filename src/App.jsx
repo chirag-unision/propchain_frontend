@@ -7,16 +7,17 @@ import HomePage from './pages/HomePage'
 // import PropertyPage from './pages/ListProperty'
 import PaymentsPage from './pages/PaymentsPage'
 import ProfilePage from './pages/ProfilePage'
-import TenentsPage from './pages/TenetsPage'
+// import TenentsPage from './pages/TenetsPage'
 import PropertyCard from './components/dashboard/propertyCard'
 import AddPropertyPage from './pages/ListProperty'
+import DashboardPage from './pages/DashboardPage' 
 import PropertyPage from './pages/PropertyPage'
 import RequestsPage from './pages/RequestsPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage/>,
+    element: <PropertyCard/>,
   },
   {
     path: "/login",

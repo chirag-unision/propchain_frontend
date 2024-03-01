@@ -1,6 +1,6 @@
 
 
-const TopBar = ({ iconUrl = "/User.png", user_name = "Nakshatra Chandna", showAdd = true }) => {
+const TopBar = ({ setIsOwner = ()=>{return;}, iconUrl = "/User.png", user_name = "Nakshatra Chandna", showAdd = true }) => {
     return (
         <div className="w-full bg-[rgba(183,0,24,0.43)] px-8 py-4 flex flex-row justify-between">
             <div className=" flex flex-row gap-x-6">
