@@ -9,6 +9,7 @@ import PaymentsPage from './pages/PaymentsPage'
 import ProfilePage from './pages/ProfilePage'
 import TenentsPage from './pages/TenetsPage'
 import PropertyCard from './components/dashboard/propertyCard'
+import AddPropertyPage from './pages/ListProperty'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
     path: "/tenents",
     element: <TenentsPage />,
   },
+  {
+    path:"addProperty",
+    element: <AddPropertyPage/>
+  }
+  
 ]);
 
 function App() {
