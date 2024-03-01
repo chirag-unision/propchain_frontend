@@ -2,7 +2,7 @@ import React from "react";
 
 const PropertyCard = () => {
     return (
-        <div>
+        <div    >
             <div className="flex flex-row w-[80%] h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
                 <div className="flex flex-row w-[70%] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
                     <div className="flex flex-col ">
