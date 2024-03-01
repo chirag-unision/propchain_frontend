@@ -4,17 +4,18 @@ import viteLogo from '/vite.svg'
 import { BrowserRouter, Route, Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
-import PropertyPage from './pages/ListProperty'
+// import PropertyPage from './pages/ListProperty'
 import PaymentsPage from './pages/PaymentsPage'
 import ProfilePage from './pages/ProfilePage'
 import TenentsPage from './pages/TenetsPage'
 import PropertyCard from './components/dashboard/propertyCard'
 import AddPropertyPage from './pages/ListProperty'
+import PropertyPage from './pages/PropertyPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PropertyCard/>,
+    element: <HomePage/>,
   },
   {
     path: "/login",

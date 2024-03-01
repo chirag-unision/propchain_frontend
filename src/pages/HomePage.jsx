@@ -10,7 +10,7 @@ const HomePage = () => {
             }}
         >
             <div className="backdrop-blur-lg w-full h-[100vh] overflow-y-auto ">
-                <SearchComponent />
+
             </div>
         </div>
     );

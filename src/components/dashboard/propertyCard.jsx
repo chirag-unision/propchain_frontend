@@ -1,6 +1,7 @@
 import React from "react";
+import Button from '@mui/material/Button';
 
-const PropertyCard = ({}) => {
+const PropertyCard = ({ isOwner = false, owner = "Sourav Rao Apte" }) => {
     return (
         <div    >
             <div className="flex flex-row w-[80%] h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
@@ -13,14 +14,32 @@ const PropertyCard = ({}) => {
                     <div className="flex flex-col justify-start mt-5">
                         <div className="text-white  mt-3 font-sans text-3xl font-extrabold"> Property Name</div>
                         <div className="text-white  mt-3 font-sans text-md"> location: ererfef  wfewfwfw f  wfewfwfwfwfw   wfw </div>
-                        <div className="flex flex-row w-max mt-5">
-                            <div className="text-white  font-sans text-2xl font-bold ">Current Tenants: </div>
-                            <div className=" flex flex-row ml-4 bg-white w-max rounded-3xl">
-                                <div className="bg-black rounded-full w-6 h-6 m-3"></div>
-                                <div className="m-auto font-bold font-sans mr-5">Naksh</div>
+                        {isOwner ? <div>
+                            <div className="flex flex-row w-max mt-5">
+                                <div className="text-white  font-sans text-2xl font-bold ">Current Tenants: </div>
+                                <div className=" flex flex-row ml-4 bg-white w-max rounded-3xl">
+                                    <div className="bg-black rounded-full w-6 h-6 m-3"></div>
+                                    <div className="m-auto font-bold font-sans mr-5">Naksh</div>
+                                </div>
                             </div>
-                        </div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0Jjiu0LQj59Wm8RUTVgn52VdNzkE0oMUcc6-Q4fJ6vgcA6regpZEfuVn4wtCbqCzoYY&usqp=CAU"  className="w-[4vw] mt-6"/>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP0Jjiu0LQj59Wm8RUTVgn52VdNzkE0oMUcc6-Q4fJ6vgcA6regpZEfuVn4wtCbqCzoYY&usqp=CAU" className="w-[4vw] mt-6" />
+                        </div> : <div>
+                            <div className="flex flex-row w-max mt-5">
+                                <div className="text-white  font-sans text-2xl font-bold ">Owner: {owner}</div>
+                                <div className="ml-[20px]">
+                                <Button variant="contained" className="ml-[10px]" style={{
+                                    backgroundColor: "#4A4A4A",
+                                    borderRadius: "20px",
+                                    fontWeight: "bold",
+                                }}>View Profile</Button>
+                                </div>
+                            </div>
+                            <div className="mt-10"><Button variant="contained"  style={{
+                                backgroundColor: "#1C450D",
+                                width: "12vw",
+                                borderRadius: "20px",
+                            }} >Pay latest rent</Button></div>
+                        </div>}
                     </div>
 
 
@@ -32,9 +51,9 @@ const PropertyCard = ({}) => {
                     <div className="text-white text-2xl mx-auto">
                         per mo
                     </div>
-                    
+
                 </div>
-                
+
 
             </div>
         </div>
