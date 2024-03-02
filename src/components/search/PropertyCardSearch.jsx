@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Button from '@mui/material/Button';
+import { Rating } from "@mui/material";
 
 const   PropertyCardSearch = ({ isRequest = true ,data = {
     pid: 1,
@@ -38,6 +39,16 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
                             <div className="m-auto font-bold text-white">Semi Furnished</div>
                         </div>
                         <div className="text-[#5B5B5B]  mt-3 ml-5 font-sans text-md font-extrabold">{data.address || `pta nahi`}</div>
+                        <Rating
+                                name="read-only"
+                                value={3}
+                                readOnly
+                                style={{
+                                    width: "10vw",
+                                    height: "5vh",
+                                    marginLeft: "1.5vw"
+                                }}
+                            />
 
                     </div>
 

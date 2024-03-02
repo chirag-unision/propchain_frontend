@@ -7,10 +7,18 @@ import axios from "axios";
 
 function SearchResults() {
 
-    function handleRequest(){
+    function handleRequest() {
         console.log("Request Sent");
     }
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([
+        {
+            uid: "Chirag Ahluwalia",
+            title: "Property Name",
+            address: "pta nahi",
+            price: "10k"
+
+        }
+    ]);
 
 
     const getTenantData = async () => {
@@ -33,22 +41,22 @@ function SearchResults() {
         )
     }
     const sendRequest = async (pid) => {
-            console.log("Request Sent");
-            axios.post(BASE_URL + "api/tenant/sendrequest", {
-                uid: 1,
-                pid: pid
-            }
-            ).then((res) => {
-                console.log(res);
-            }
-            ).catch((err) => {
-                console.log(err);
-            }
-            )
-            setsreenRequest(true);
-            
+        console.log("Request Sent");
+        axios.post(BASE_URL + "api/tenant/sendrequest", {
+            uid: 1,
+            pid: pid
         }
-    
+        ).then((res) => {
+            console.log(res);
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
+        setsreenRequest(true);
+
+    }
+
 
     useEffect(() => {
         getTenantData();
@@ -59,11 +67,11 @@ function SearchResults() {
         <div>
             <TopBar />
             <div className="flex flex-col p-10">
-            {/* <PropertyCardSearch isRequest={false}   sendRequest={()=>{sendRequest(1)}} /> */}
+                {/* <PropertyCardSearch isRequest={false} sendRequest={() => { sendRequest(1) }} /> */}
                 {
-                    data && data.map((item) => {
+                    data.map((item) => {
                         return (
-                            <PropertyCardSearch isRequest={false} data={item} sendRequest={()=>{sendRequest(item.pid)}} />
+                            <PropertyCardSearch isRequest={false} data={item} sendRequest={() => { sendRequest(item.pid) }} />
                         )
                     })
                 }
