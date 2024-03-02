@@ -1,10 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopBar from "../components/common/topBar";
 import PropertyCard from "../components/dashboard/propertyCard";
 import PropertyCardSearch from "../components/search/PropertyCardSearch";
 import { Button } from "@mui/material";
+import axios from "axios";
+import { BASE_URL } from "../constants";
 
 function RequestsPage() {
+
+    const [data, setData] = useState([
+        {
+            title: "Property Title",
+            address: "Property Address",
+            price: 0,
+            beds: 0,
+            baths: 0,
+            furnished: false,
+        }
+    ]);
+
+    const uid  = JSON.parse(localStorage.getItem("userData")).id;
+
+    const getRequestsData = () => {
+        axios.post(BASE_URL + "api/owner/getrequests", {
+            uid: uid
+        }
+        ).then((res) => {
+            console.log(res.data);
+            setData(res.data["requests"]);
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
+    }
+
+    useEffect(() => {
+        getRequestsData();
+    }, [])
+
+
     return (
         <div>
             <TopBar />

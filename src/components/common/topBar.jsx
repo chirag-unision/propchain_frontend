@@ -14,8 +14,13 @@ const TopBar = ({ toggle=false, setIsOwner = ()=>{return;}, iconUrl = "/User.png
                     {user_name}
                 </div>
 
-                <div className="text-white bg-[#1E2021] px-3 py-1 h-min rounded-lg ">
-                    Edit Profile 
+                <div className="text-white cursor-pointer bg-[#1E2021] px-3 py-1 h-min rounded-lg "
+                    onClick={()=>{
+                        localStorage.removeItem("userData");
+                        window.location.href = "/";
+                    }}
+                >
+                    Logout
                 </div>
 
                 {toggle &&
@@ -36,7 +41,9 @@ const TopBar = ({ toggle=false, setIsOwner = ()=>{return;}, iconUrl = "/User.png
                 </div>
                 }
                 <div className="cursor-pointer">
+                    <a href="/requests">
                     <img src={"/Inbox.svg"} className="h-[2rem] w-[2rem] rounded-md "></img>
+                    </a>
                 </div>
                 
 
