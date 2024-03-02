@@ -67,7 +67,7 @@ const PropertyPage = ({ pid = 4299492 }) => {
             <TopBar />
             <div className="p-20 w-full">
                 <div className="flex flex-row  bg-nak-dark-gray h-full rounded-2xl">
-                    <div className="flex flex-col p-10 w-[30vw]">
+                    <div className="flex flex-col p-10 w-[30vw] mx-auto">
                         <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/12/16/Photos/house-ktQD--621x414@LiveMint.jpg" alt="property" className=" rounded-2xl " />
                         <div className="flex flex-col bg-nak-light-gray rounded-2xl mt-20">
                             <div className="text-8xl text-white mx-auto mt-20"> {data.price} </div>
@@ -76,7 +76,7 @@ const PropertyPage = ({ pid = 4299492 }) => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col m-auto">
                         <div className="text-5xl text-white mt-10">{data.title}</div>
                         <div className="text-2xl text-white mt-10">{data.address} </div>
                         <div className="flex flex-row bg-nak-light-gray w-100% h-[10vh] mr-10 mt-5 rounded-2xl">
@@ -100,6 +100,7 @@ const PropertyPage = ({ pid = 4299492 }) => {
                                 fontWeight: "bold",
                                 margin: "auto",
                                 marginLeft: "0vw",
+                                marginRight: "3.5vw",
                                 marginTop: "7vh"
                             }}>{sentRequest ? `sent` : `Send Request`}</Button>
 
