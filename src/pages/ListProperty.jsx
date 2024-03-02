@@ -39,35 +39,14 @@ const AddPropertyPage = () => {
         e.preventDefault();
         let form = document.getElementsByTagName('form')[0];
         let data = new FormData(form);
-        // let highlights = JSON.stringify(highlights);
-        let description = data.get('description');
-        let rent = data.get('rent');
-        let people = data.get('people');
-        let property_name = data.get('property_name');
-        let locality = data.get('type');
-        let images = data.get('images');
-        let docs = data.get('docs');
-        let datafinal = {
-            property_name: property_name,
-            description: description,
-            rent: rent,
-            people: people,
-            locality: locality,
-            images: images,
-            docs: docs,
-            // highlights: highlights
-        }
-        console.log(datafinal);
+        data.append('images',  document.getElementsByName('images')[0].files[0]);
+        data.append('docs',  document.getElementsByName('docs')[0].files[0]);
+        data.append('highlights', highlights);
+        
 
 
-        // data.append('property_name', "hi");
-        // data.append('highlights', highlights);  
-        // console.log(data.get('highlights'));
-        // fetch("https://05aa-103-139-191-218.ngrok-free.app/", {
-        //     method: 'POST',
-        //     body: data
-        //   });
-        axios.post("https://05aa-103-139-191-218.ngrok-free.app/", datafinal, {
+   
+        axios.post("https://05aa-103-139-191-218.ngrok-free.app/", data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
