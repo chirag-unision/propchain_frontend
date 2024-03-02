@@ -8,6 +8,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Slider, TextField, TextareaAutosize } from "@mui/material";
 import { Textarea } from "@mui/joy";
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
 const VisuallyHiddenInput = styled('input')({
     clip: 'rect(0 0 0 0)',
@@ -39,6 +40,8 @@ const AddPropertyPage = () => {
         e.preventDefault();
         let form = document.getElementsByTagName('form')[0];
         let data = new FormData(form);
+        data.append("uid",1)
+        data.append("locality", locality);
         data.append('images',  document.getElementsByName('images')[0].files[0]);
         data.append('docs',  document.getElementsByName('docs')[0].files[0]);
         data.append('highlights', highlights);
@@ -46,7 +49,7 @@ const AddPropertyPage = () => {
 
 
    
-        axios.post("https://05aa-103-139-191-218.ngrok-free.app/", data, {
+        axios.post(BASE_URL+"api/owner/addprops", data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -133,7 +136,24 @@ const AddPropertyPage = () => {
                             <TextField
                                 id="outlined-basic"
                                 label="Property Name"
-                                name="property_name"
+                                name="title"
+                                sx={{
+                                    "& fieldset": { border: 'white' },
+                                    input: { color: 'white' },
+
+                                }}
+                                variant="outlined"
+                                className="w-full bg-[#2D2D2D] rounded-lg "
+                                InputLabelProps={{
+                                    style: { color: '#ADADAD' },
+                                }}
+
+
+                            />
+                            <TextField
+                                id="outlined-basic"
+                                label="Property Address"
+                                name="address"
                                 sx={{
                                     "& fieldset": { border: 'white' },
                                     input: { color: 'white' },
@@ -152,7 +172,7 @@ const AddPropertyPage = () => {
                             <div className="flex flex-row gap-x-5 justify-between">
                                 <TextField
                                     id="outlined-basic"
-                                    name="rent"
+                                    name="price"
                                     label="Rent (per Month)"
                                     sx={{
                                         "& fieldset": { border: 'white' },
@@ -162,13 +182,32 @@ const AddPropertyPage = () => {
                                     variant="outlined"
                                     className="w-full bg-[#2D2D2D] rounded-lg "
                                     InputLabelProps={{
+                                        type: 'number',
+                                        style: { color: '#ADADAD' },
+                                    }}
+
+                                />
+
+                                <TextField
+                                    id="outlined-basic"
+                                    name="property_id"
+                                    label="Property Number"
+                                    sx={{
+                                        "& fieldset": { border: 'white' },
+                                        input: { color: 'white' },
+
+                                    }}
+                                    variant="outlined"
+                                    className="w-full bg-[#2D2D2D] rounded-lg "
+                                    InputLabelProps={{
+                                        type: 'number',
                                         style: { color: '#ADADAD' },
                                     }}
 
                                 />
 
                                 <ToggleButtonGroup
-                                    name="type"
+                                    name="locality"
                                     value={locality}
                                     exclusive
                                     onChange={handleAlignment}

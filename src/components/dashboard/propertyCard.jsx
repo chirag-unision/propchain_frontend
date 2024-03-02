@@ -2,7 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import { Modal, Rating, Typography } from "@mui/material";
 
-const PropertyCard = ({ isOwner = false , price="10k", handlePayment, owner = "Sourav Rao Apte" }) => {
+const PropertyCard = ({ isOwner = false , price="10k",data, handlePayment, owner = "Sourav Rao Apte" }) => {
     const [modal, setModal] = React.useState(false);
     const [ownerRating, setOwnerRating] = React.useState(1);
     const [propertyRating, setPropertyRating] = React.useState(1);
@@ -23,13 +23,13 @@ const PropertyCard = ({ isOwner = false , price="10k", handlePayment, owner = "S
             <div className="flex flex-row w-full h-80  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
                 <div className="flex flex-row w-[70%] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
                     <div className="flex flex-col ">
-                        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
+                        <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/12/16/Photos/house-ktQD--621x414@LiveMint.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
                         <div className="text-white ml-5 mt-5 w-max font-sans"> Rent Period</div>
                         <div className="text-white ml-5 mt-5 w-max font-sans text-3xl "> 5 Months</div>
                     </div>
                     <div className="flex flex-col justify-start mt-5">
-                        <div className="text-white  mt-3 font-sans text-3xl font-extrabold"> Property Name</div>
-                        <div className="text-white  mt-3 font-sans text-md"> location: ererfef  wfewfwfw f  wfewfwfwfwfw   wfw </div>
+                        <div className="text-white  mt-3 font-sans text-3xl font-extrabold"> {data?.title||"Property Name"}</div>
+                        <div className="text-white  mt-3 font-sans text-md"> location:{data?.address || "asdu aus duw das od aoisd oisd osiad "} </div>
                         {isOwner ? <div>
                             <div className="flex flex-row w-max mt-5">
                                 <div className="text-white  font-sans text-2xl font-bold ">Current Tenants: </div>
@@ -65,7 +65,7 @@ const PropertyCard = ({ isOwner = false , price="10k", handlePayment, owner = "S
                 </div>
                 <div className="flex flex-col justify-center mx-auto ">
                     <div className="text-8xl text-white">
-                        10k
+                        {data?.price || "10"}k
                     </div>
                     <div className="text-white text-2xl mx-auto">
                         per mo
@@ -114,7 +114,7 @@ const PropertyCard = ({ isOwner = false , price="10k", handlePayment, owner = "S
                     <Button variant="contained" 
                     onClick={handleModalSubmit}
                         style={{margin:"0.5rem auto", display:"block"}} color="primary" >
-                    Pay {price} for this Month</Button>
+                    Pay {data?.price || "10"}k for this Month</Button>
                         
                         
                     

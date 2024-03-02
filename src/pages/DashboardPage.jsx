@@ -2,6 +2,8 @@ import TopBar from "../components/common/topBar";
 import { useState,useEffect,useCallback } from "react";
 import PropertyCard from "../components/dashboard/propertyCard";
 import useRazorpay from "react-razorpay";
+import { BASE_URL } from "../constants";
+import axios from "axios";
 
 
 
@@ -12,8 +14,37 @@ const DashboardPage = () => {
 
     const [isOwner, setIsOwner] = useState(false);
     const [modal, setModal] = useState(true);
+    const [data, setData] = useState([]);
     const [ownerRating, setOwnerRating] = useState(1);
     const [propertyRating, setPropertyRating] = useState(1);
+
+    const getOwnerData = async () => {
+        axios.post(BASE_URL+"api/owner/getprops",{
+            uid: 1  
+        }
+        ).then((res) => {
+            console.log(res.data);
+            setData(res.data['Properties']);
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
+    }
+
+    const getTenantData = async () => {
+        axios.post(BASE_URL+"api/tenant/getprops",{
+            uid: 1  
+        }
+        ).then((res) => {
+            console.log(res.data);
+            setData(res.data['Properties']);
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
+    }
     
     const handlePayment = useCallback(async (price) => {
         const order = await createOrder(params);
@@ -48,7 +79,15 @@ const DashboardPage = () => {
     
       
 
-
+    useEffect(() => {
+        if(isOwner){
+            getOwnerData();
+        }
+        else{
+            getTenantData();
+        }
+    }
+    ,[isOwner]);
 
     return (
         <div>
@@ -58,7 +97,12 @@ const DashboardPage = () => {
                     <div className="my-3">
                         Current {isOwner?"Tenants":"House"}
                     </div>
-                    <PropertyCard isOwner={isOwner}/>
+                    {data.length!= 0 && data?.map((d)=>{
+                    
+                        return <PropertyCard data={d} isOwner={isOwner}/>
+                    }
+                    )}
+                    {/* <PropertyCard data={data}  isOwner={isOwner}/> */}
                 </div>
 
                 <div className="mx-20 my-10">
