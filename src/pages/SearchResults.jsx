@@ -12,9 +12,16 @@ function SearchResults() {
     }
     const [data, setData] = useState([]);
 
+
     const getTenantData = async () => {
+        let queryString = window.location.search;
+        queryString.replace("?", "");
+        queryString = queryString.split("=")[1]
+        queryString = queryString.split("%20").join(" ");
+        console.log(queryString);
+
         axios.post(BASE_URL + "api/tenant/getprops", {
-            query: "faridabad"
+            query: queryString
         }
         ).then((res) => {
             console.log(res.data);

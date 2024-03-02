@@ -16,7 +16,7 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
             <div className="flex flex-row w-[80vw] h-[40vh]  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
                 <div className="flex flex-row w-[65vw] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
                     <div className="flex flex-col ">
-                        <img src="https://mui.com/static/images/cards/contemplative-reptile.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
+                        <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/12/16/Photos/house-ktQD--621x414@LiveMint.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
                         <div className="text-white ml-5 mt-5 w-max font-sans"> Owner</div>
                         <div className="text-white ml-5 mt-5 w-max font-sans text-3xl "> {data?.uid || `Chirag Ahluwalia`}</div>
                     </div>

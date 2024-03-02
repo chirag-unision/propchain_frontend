@@ -66,7 +66,7 @@ function App() {
 
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem('userData')))
-  }, [data])
+  }, [])
 
   return (
     data?.id ? <RouterProvider router={router} /> : <LoginPage />
