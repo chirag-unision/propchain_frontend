@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Button from '@mui/material/Button';
 
 const   PropertyCardSearch = ({ isRequest = true ,data = {
@@ -6,7 +7,10 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
     title: "Property Name",
     address: "pta nahi",
     price: "10k"
-} }) => {
+},sendRequest }) => {
+
+    const [sent,setSendRequest] = useState(false);
+
     return (
         <div    >
             <div className="flex flex-row w-[80vw] h-[40vh]  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
@@ -59,11 +63,15 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
                         <div className="text-white text-2xl mx-auto mb-5">
                             per mo
                         </div>
-                        <Button variant="contained" className="bg-nak-light-gray text-white mt-5" style={{
+                        <Button variant="contained" className="bg-nak-light-gray text-white mt-5" onClick={()=>{
+                            sendRequest();
+                            setSendRequest(true);
+                        }} style={{
                             backgroundColor: "#60121D",
                             borderRadius: "40px",
                             width: "10vw",
-                        }}>Send Request</Button>
+
+                        }}>{sent?`Sent`:`Send Request`}</Button>
                         <Button variant="outlined" className="bg-nak-light-gray text-white mt-10" style={{
                             color: "white",
                             borderRadius: "40px",
