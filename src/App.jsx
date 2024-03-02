@@ -13,7 +13,7 @@ import PropertyCard from './components/dashboard/propertyCard'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PropertyCard/>,
+    element: <HomePage />,
   },
   {
     path: "/login",
