@@ -27,7 +27,7 @@ function RequestsPage() {
         }
         ).then((res) => {
             console.log(res.data);
-            setData(res.data["requests"]);
+            // setData(res.data["requests"]);
         }
         ).catch((err) => {
             console.log(err);
@@ -39,14 +39,21 @@ function RequestsPage() {
         getRequestsData();
     }, [])
 
+    useEffect(() => {
+        console.log(data);
+    }
+    , [data])
+
 
     return (
         <div>
             <TopBar />
             <div className="flex flex-col">
+
+                    
+
                {data.map((item) => {
-                    <>
-                    asdsduiasdiu
+                     return (<>
                 <div className="flex flex-row bg-nak-dark-gray h-[10vh] mx-[10vw] rounded-3xl m-10">
 
                     
@@ -82,7 +89,7 @@ function RequestsPage() {
 
                 </div>
                 <PropertyCardSearch />
-                </>
+                </>)
                     })
                  }
                  </div>
