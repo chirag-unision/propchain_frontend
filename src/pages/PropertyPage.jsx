@@ -38,17 +38,19 @@ const PropertyPage = ({ pid = 4299492 }) => {
         )
     }
     const getPropertyData = (pid) => {
-        if (searchParams.has("pid")){
+        if (searchParams.has("pid")) {
             pid = searchParams.get("pid");
         }
-        
+
         console.log(pid);
         axios.post(BASE_URL + "api/tenant/getpropinfo", {
             pid: pid
         }
         ).then((res) => {
             console.log(res.data);
+
             setData(res.data["property"][0]);
+
         }
         ).catch((err) => {
             console.log(err);
@@ -86,7 +88,7 @@ const PropertyPage = ({ pid = 4299492 }) => {
                         </div>
                         <div className="flex flex-row px-auto">
 
-                            <Button variant="contained" onClick={()=>{
+                            <Button variant="contained" onClick={() => {
                                 sendRequest(pid);
                                 setsreenRequest(true);
                             }} className="bg-nak-light-gray text-white mt-10" style={{
