@@ -41,22 +41,22 @@ function SearchResults() {
         )
     }
     const sendRequest = async (pid) => {
-        console.log("Request Sent");
-        axios.post(BASE_URL + "api/tenant/sendrequest", {
-            uid: 1,
-            pid: pid
+            const uid = JSON.parse(localStorage.getItem("userData")).uid;
+            console.log("Request Sent");
+            axios.post(BASE_URL + "api/tenant/sendrequest", {
+                uid: uid,
+                pid: pid
+            }
+            ).then((res) => {
+                console.log(res);
+            }
+            ).catch((err) => {
+                console.log(err);
+            }
+            )
+            
         }
-        ).then((res) => {
-            console.log(res);
-        }
-        ).catch((err) => {
-            console.log(err);
-        }
-        )
-        setsreenRequest(true);
-
-    }
-
+    
 
     useEffect(() => {
         getTenantData();

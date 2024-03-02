@@ -17,10 +17,11 @@ const DashboardPage = () => {
     const [data, setData] = useState([]);
     const [ownerRating, setOwnerRating] = useState(1);
     const [propertyRating, setPropertyRating] = useState(1);
+    const uid = JSON.parse(localStorage.getItem("userData")).uid;
 
     const getOwnerData = async () => {
         axios.post(BASE_URL+"api/owner/getprops",{
-            uid: 1  
+            uid: uid
         }
         ).then((res) => {
             console.log(res.data);
@@ -33,8 +34,9 @@ const DashboardPage = () => {
     }
 
     const getTenantData = async () => {
+        
         axios.post(BASE_URL+"api/tenant/getprops",{
-            uid: 1  
+            uid: uid
         }
         ).then((res) => {
             console.log(res.data);

@@ -19,7 +19,7 @@ function RequestsPage() {
         }
     ]);
 
-    const uid  = JSON.parse(localStorage.getItem("userData")).id;
+    const uid  = JSON.parse(localStorage.getItem("userData")).uid;
 
     const getRequestsData = () => {
         axios.post(BASE_URL + "api/owner/getrequests", {
@@ -44,7 +44,13 @@ function RequestsPage() {
         <div>
             <TopBar />
             <div className="flex flex-col">
+               {data.map((item) => {
+                    <>
+                    asdsduiasdiu
                 <div className="flex flex-row bg-nak-dark-gray h-[10vh] mx-[10vw] rounded-3xl m-10">
+
+                    
+
                     <div className="text-white m-auto  ">
                         Chirag Ahluwalia is interested in this
                     </div>
@@ -76,7 +82,10 @@ function RequestsPage() {
 
                 </div>
                 <PropertyCardSearch />
-            </div>
+                </>
+                    })
+                 }
+                 </div>
         </div>
     );
 }
