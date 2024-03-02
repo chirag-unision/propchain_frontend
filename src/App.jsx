@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { BrowserRouter, Route, Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
@@ -62,9 +62,16 @@ const router = createBrowserRouter([
 
 function App() {
   const [count, setCount] = useState(0)
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    setData(JSON.parse(localStorage.getItem('userData')))
+  }, [data])
 
   return (
-    <RouterProvider router={router}/>
+    data?.id ? <RouterProvider router={router} /> : <LoginPage />
+    // <RouterProvider router={router}/>
+
   )
 }
 

@@ -32,10 +32,13 @@ function LoginPage() {
       aadhar: aadhar
     }).then((res) => {
       console.log(res)
+      if (res?.status === 200) {
+        setLogin(true)
+      }
     }).catch((err) => {
       console.log(err)
     })
-    console.log("bhej diya");
+    // console.log("bhej diya");
   }
 
   const handleLoginSubmit = (e) => {
@@ -51,6 +54,8 @@ function LoginPage() {
     console.log(dataJson);
     axios.post(BASE_URL + "api/user/login", dataJson).then((res) => {
       console.log(res)
+      localStorage.setItem('userData', JSON.stringify(res?.data?.user))
+      window.location.href = '/dashboard'
     }
     ).catch((err) => {
       console.log(err)
