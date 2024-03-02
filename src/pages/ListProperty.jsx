@@ -116,13 +116,11 @@ const AddPropertyPage = () => {
                                 <VisuallyHiddenInput type="file" accept=".jpg,.png,.jpeg" name="images" />
                             </Button>
                             <Button
-                                style={{ backgroundColor: '#2D2D2D', borderRadius: "1rem", color: 'white' }}
-                                className="w-[15vw] h-[15vw]"
+                                style={{ backgroundColor: '#60121D', borderRadius: "1rem", color: 'white' }}
                                 component="label"
                                 role={undefined}
                                 variant="contained"
                                 tabIndex={-1}
-                                startIcon={<CloudUploadIcon />}
                                 onClick={handleSubmit}
                                 type="submit"
                                 name="submit"

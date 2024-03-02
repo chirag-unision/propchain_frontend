@@ -37,7 +37,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/tenents",
-    element: <TenentsPage />,
+    element: <PropertyCard   />,
   },
   {
     path:"/addProperty",
