@@ -10,7 +10,12 @@ const HomePage = () => {
             }}
         >
             <nav className="h-20 p-4 flex w-full justify-end absolute top-0">
-                <button className="p-4 bg-white rounded-3xl my-auto">Login/SignUp</button>
+                <button 
+                    onClick={()=>{
+                        localStorage.clear();
+                        window.location.href="/";
+                    }}
+                 className="p-4 bg-white rounded-3xl my-auto">Logout</button>
             </nav>
             <div className="h-[100vh] w-full flex justify-end">
                 <div className="w-[60%]">

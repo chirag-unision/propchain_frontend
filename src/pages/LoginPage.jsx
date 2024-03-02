@@ -55,7 +55,7 @@ function LoginPage() {
     axios.post(BASE_URL + "api/user/login", dataJson).then((res) => {
       console.log(res)
       localStorage.setItem('userData', JSON.stringify(res?.data?.user))
-      window.location.href = '/dashboard'
+      window.location.href = '/'
     }
     ).catch((err) => {
       console.log(err)

@@ -35,7 +35,7 @@ const PropertyCard = ({ isOwner = false , price="10k",data, handlePayment, owner
                                 <div className="text-white  font-sans text-2xl font-bold ">Current Tenants: </div>
                                 <div className=" flex flex-row ml-4 bg-white w-max rounded-3xl">
                                     <div className="bg-black rounded-full w-6 h-6 m-3"></div>
-                                    <div className="m-auto font-bold font-sans mr-5">Naksh</div>
+                                    <div className="m-auto font-bold font-sans mr-5 text-black">Naksh</div>
                                 </div>
                             </div>
                             <img src="/Docs.png" className="w-[4vw] mt-6" />
@@ -43,11 +43,11 @@ const PropertyCard = ({ isOwner = false , price="10k",data, handlePayment, owner
                             <div className="flex flex-row w-max mt-5">
                                 <div className="text-white  font-sans text-2xl font-bold ">Owner: {owner}</div>
                                 <div className="ml-[20px]">
-                                <Button variant="contained" className="ml-[10px]" style={{
+                                <a href="/profile"><Button variant="contained" className="ml-[10px]" style={{
                                     backgroundColor: "#4A4A4A",
                                     borderRadius: "20px",
                                     fontWeight: "bold",
-                                }}>View Profile</Button>
+                                }}>View Profile</Button></a>
                                 </div>
                             </div>
                             <div className="mt-10"><Button variant="contained" 

@@ -128,7 +128,7 @@ const PropertyPage = ({ pid = 4299492 }) => {
                                 </div>
                             </Button>
                         </div>
-                        <div className="bg-nak-light-gray w-[95%] h-[26vh] mb-10 mt-10 p-10 rounded-2xl text-white ">
+                        <div className="bg-nak-light-gray w-[95%] h-[26vh] mb-10 mt-10 p-10 rounded-2xl text-4xl text-white ">
                             {data.description}
 
                         </div>

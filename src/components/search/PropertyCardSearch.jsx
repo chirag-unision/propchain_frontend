@@ -22,7 +22,8 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
                     <div className="flex flex-col ">
                         <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/12/16/Photos/house-ktQD--621x414@LiveMint.jpg" alt="property" className="w-[18vw] h-30 rounded-3xl ml-5 mt-5" />
                         <div className="text-white ml-5 mt-5 w-max font-sans"> Owner</div>
-                        <div className="text-white ml-5 mt-5 w-max font-sans text-3xl "> {data?.uid || `Chirag Ahluwalia`}</div>
+                        <div className="text-white ml-5 mt-5 w-max font-sans text-3xl ">Sourav Singh</div>
+                        {/* {data?.uid || `Chirag Ahluwalia`} */}
                     </div>
                     <div className="flex flex-col justify-start mt-5">
                         <div className="flex flex-row">
