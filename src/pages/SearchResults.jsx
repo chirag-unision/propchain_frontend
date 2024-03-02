@@ -25,7 +25,7 @@ function SearchResults() {
         }
         ).then((res) => {
             console.log(res.data);
-            setData(res.data['Properties']);
+            setData(res.data['property']);
         }
         ).catch((err) => {
             console.log(err);
@@ -59,9 +59,9 @@ function SearchResults() {
         <div>
             <TopBar />
             <div className="flex flex-col p-10">
-            <PropertyCardSearch isRequest={false}   sendRequest={()=>{sendRequest(1)}} />
+            {/* <PropertyCardSearch isRequest={false}   sendRequest={()=>{sendRequest(1)}} /> */}
                 {
-                    data.map((item) => {
+                    data && data.map((item) => {
                         return (
                             <PropertyCardSearch isRequest={false} data={item} sendRequest={()=>{sendRequest(item.pid)}} />
                         )

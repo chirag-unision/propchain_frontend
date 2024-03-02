@@ -9,6 +9,8 @@ import { BASE_URL } from "../constants";
 
 const PropertyPage = ({ pid = 4299492 }) => {
 
+    const searchParams = new URLSearchParams(window.location.search);
+
     const [data, setData] = useState([
         {
             title: "Property Title",
@@ -36,6 +38,11 @@ const PropertyPage = ({ pid = 4299492 }) => {
         )
     }
     const getPropertyData = (pid) => {
+        if (searchParams.has("pid")){
+            pid = searchParams.get("pid");
+        }
+        
+        console.log(pid);
         axios.post(BASE_URL + "api/tenant/getpropinfo", {
             pid: pid
         }

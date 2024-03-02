@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from '@mui/material/Button';
 
 const   PropertyCardSearch = ({ isRequest = true ,data = {
+    pid: 1,
     uid: "Chirag Ahluwalia",
     title: "Property Name",
     address: "pta nahi",
@@ -74,7 +75,8 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
                             width: "10vw",
 
                         }}>{sent?`Sent`:`Send Request`}</Button>
-                        <Button variant="outlined" className="bg-nak-light-gray text-white mt-10" style={{
+                        <a href={"/property?pid="+data?.pid} className="w-full">
+                        <Button variant="outlined" className="bg-nak-light-gray w-full text-white mt-10" style={{
                             color: "white",
                             borderRadius: "40px",
                             borderColor: "#60121D",
@@ -82,6 +84,7 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
                             marginTop: "2vh"
 
                         }}>View Details</Button>
+                        </a>
                     </div>}
 
                 </div>
