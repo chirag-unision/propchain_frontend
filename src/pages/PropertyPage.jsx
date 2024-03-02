@@ -7,17 +7,41 @@ import { BASE_URL } from "../constants";
 
 
 
-const PropertyPage = ({ pid = 1 }) => {
+const PropertyPage = ({ pid = 4299492 }) => {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([
+        {
+            title: "Property Title",
+            address: "Property Address",
+            price: 0,
+            beds: 0,
+            baths: 0,
+            furnished: false,
+        }
+    ]);
 
+    const [sentRequest, setsreenRequest] = useState(false);
+    const sendRequest = async (pid) => {
+        console.log("Request Sent");
+        axios.post(BASE_URL + "api/tenant/sendrequest", {
+            uid: 1,
+            pid: pid
+        }
+        ).then((res) => {
+            console.log(res);
+        }
+        ).catch((err) => {
+            console.log(err);
+        }
+        )
+    }
     const getPropertyData = (pid) => {
         axios.post(BASE_URL + "api/tenant/getpropinfo", {
             pid: pid
         }
         ).then((res) => {
             console.log(res.data);
-            setData(res.data);
+            setData(res.data["property"][0]);
         }
         ).catch((err) => {
             console.log(err);
@@ -37,15 +61,15 @@ const PropertyPage = ({ pid = 1 }) => {
                     <div className="flex flex-col p-10 w-[30vw]">
                         <img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2014/12/16/Photos/house-ktQD--621x414@LiveMint.jpg" alt="property" className=" rounded-2xl " />
                         <div className="flex flex-col bg-nak-light-gray rounded-2xl mt-20">
-                            <div className="text-8xl text-white mx-auto mt-20"></div>
+                            <div className="text-8xl text-white mx-auto mt-20"> {data.price} </div>
                             <div className="text-2xl text-[#7B7B7B] mx-auto mb-20">per mo</div>
 
                         </div>
 
                     </div>
                     <div className="flex flex-col">
-                        <div className="text-5xl text-white mt-10">Property Name</div>
-                        <div className="text-2xl text-white mt-10">2 BHK Builder Floor For Sale in Salasar Luxury Floors,Neharpar, Faridab   </div>
+                        <div className="text-5xl text-white mt-10">{data.title}</div>
+                        <div className="text-2xl text-white mt-10">{data.address} </div>
                         <div className="flex flex-row bg-nak-light-gray w-100% h-[10vh] mr-10 mt-5 rounded-2xl">
                             <div className="text-white m-auto font-bold ">2 Beds</div>
                             <div className="border-r-2 h-[70%] m-auto border-white"></div>
@@ -55,7 +79,10 @@ const PropertyPage = ({ pid = 1 }) => {
                         </div>
                         <div className="flex flex-row px-auto">
 
-                            <Button variant="contained" className="bg-nak-light-gray text-white mt-10" style={{
+                            <Button variant="contained" onClick={()=>{
+                                sendRequest(pid);
+                                setsreenRequest(true);
+                            }} className="bg-nak-light-gray text-white mt-10" style={{
                                 backgroundColor: "#60121D",
                                 borderRadius: "40px",
                                 width: "20vw",
@@ -65,7 +92,7 @@ const PropertyPage = ({ pid = 1 }) => {
                                 margin: "auto",
                                 marginLeft: "0vw",
                                 marginTop: "7vh"
-                            }}>Send Request</Button>
+                            }}>{sentRequest ? `sent` : `Send Request`}</Button>
 
                             <Button variant="contained" className="bg-nak-light-gray text-white mt-10 " style={{
                                 backgroundColor: "#2D2D2D",
@@ -91,7 +118,8 @@ const PropertyPage = ({ pid = 1 }) => {
                                 </div>
                             </Button>
                         </div>
-                        <div className="bg-nak-light-gray w-[95%] h-[26vh] mb-10 mt-10 rounded-2xl">
+                        <div className="bg-nak-light-gray w-[95%] h-[26vh] mb-10 mt-10 p-10 rounded-2xl text-white ">
+                            {data.description}
 
                         </div>
                     </div>

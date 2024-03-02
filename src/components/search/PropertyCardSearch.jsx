@@ -12,7 +12,9 @@ const   PropertyCardSearch = ({ isRequest = true ,data = {
     const [sent,setSendRequest] = useState(false);
 
     return (
-        <div    >
+        <div onClick={()=>{
+            console.log("component Clicked");
+        }}>
             <div className="flex flex-row w-[80vw] h-[40vh]  shadow-lg bg-nak-light-gray rounded-3xl mx-auto my-auto">
                 <div className="flex flex-row w-[65vw] h-[100%] bg-nak-dark-gray rounded-tl-3xl rounded-bl-3xl gap-x-5">
                     <div className="flex flex-col ">
