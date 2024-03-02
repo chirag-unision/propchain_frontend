@@ -13,6 +13,7 @@ import AddPropertyPage from './pages/ListProperty'
 import DashboardPage from './pages/DashboardPage' 
 import PropertyPage from './pages/PropertyPage'
 import RequestsPage from './pages/RequestsPage'
+import SearchResults from './pages/SearchResults'
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
     path:"dashboard",
     element: <DashboardPage/>
   
+  },
+  {
+    path:"/searchResults",
+    element: <SearchResults/>
   }
   
 ]);
